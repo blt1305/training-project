@@ -1,0 +1,30 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>{{ title }}</h1>
+        <p>Этот сайт о много пряжи, которая у меня дома. Здесь будет склад.</p>
+        <button class="btn btn-warning"> {% filter lower %} На страницу Про нас {% endfilter %}</button>
+        {% for el in values %}
+            <p> {{ el }} </p>
+        {% endfor %}
+
+
+        <p> {{ values_1|lower }} </p>
+
+
+        {% for el in values_1 %}
+            {% if el == 'страна' %}
+                {% filter upper %}
+                    <p> {{ el }} </p>
+                {% endfilter %}
+            {% endif %}
+        {% endfor %}
+
+
+
+    </div>
+
+{% endblock %}
