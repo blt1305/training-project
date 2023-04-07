@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
-from django.views.generic import DetailView
+from django.views.generic import DetailView, UpdateView, DeleteView
 
 
 def news_home(request):
@@ -17,6 +17,18 @@ class NewsDetailView(DetailView):
     model = Article
     template_name = 'news/details_view.html'
     context_object_name = 'article'
+
+
+class NewsUpdateView(UpdateView):
+    model = Article
+    template_name = 'news/create.html'
+    form_class = ArticleForm
+
+
+class NewsDeleteView(DeleteView):
+    model = Article
+    success_url = '/news/'
+    template_name = 'news/news_delete.html'
 
 
 def create(request):
