@@ -13,7 +13,7 @@ def news_home(request):
     return render(request, 'news/news_home.html', {'news':news})
 
 
-class NewsDetailViews(DetailView):
+class NewsDetailView(DetailView):
     model = Article
     template_name = 'news/details_view.html'
     context_object_name = 'article'
